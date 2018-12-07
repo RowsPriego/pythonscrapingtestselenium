@@ -3,15 +3,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-# Specifying incognito mode as you launch your browser[OPTIONAL]
-browser = webdriver.Remote(
-    command_executor='http://127.0.0.1:4444/wd/hub',
-    desired_capabilities=DesiredCapabilities.CHROME)
+
+print("Comenzamos...")
+
+browser = webdriver.Remote("http://172.19.0.2:4445/wd/hub", webdriver.DesiredCapabilities.FIREFOX.copy())
+
 
 # Go to desired website
 browser.get("https://github.com/TheDancerCodes")
+
+print("Ejecutando con la url: " + browser.current_url)
 
 # Wait 20 seconds for page to load
 timeout = 20
